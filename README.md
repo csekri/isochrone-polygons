@@ -50,6 +50,7 @@ If we run with `--fill` on e.g.
 ./isoch --simplify 0 --travel-speed 20 --radii 5 10 15 20 25 30 35 40 45 50 55 60 --circle-points 11 --verbose --subtract --buffer-distance 0.005 --fill --input-file out.graphml
 ```
 we obtain something like:
+
 ![fill](imgs/fill.jpg)
 ### Isochrones without filled interior
 If we run with `--fill` off e.g.
@@ -57,6 +58,7 @@ If we run with `--fill` off e.g.
 ./isoch --simplify 0 --travel-speed 20 --radii 5 10 15 20 25 30 35 40 45 50 55 60 --circle-points 11 --verbose --subtract --buffer-distance 0.00006 --input-file out.graphml
 ```
 we obtain something like:
+
 ![nofill](imgs/nofill.jpg)
 ### Isochrones of the shortest distance tree
 To obtain this kind of geometry run with `--predecessor` on.
@@ -64,6 +66,7 @@ To obtain this kind of geometry run with `--predecessor` on.
 ./isoch --simplify 0 --travel-speed 20 --radii 1 2 3 4 5 6 --circle-points 11 --verbose --subtract --buffer-distance 0.00002 --input-file out.graphml --predecessor
 ```
 The map we get:
+
 ![predecessor](imgs/predecessor.jpg)
 ## Visualisation
 We use `folium` in `Python` to create the maps. Just run `python3 iso_folium.py`.
