@@ -52,6 +52,7 @@ If we run with `--fill` on e.g.
 we obtain something like:
 
 <img src="imgs/fill.jpg" alt="fill" width="250" height="250"/>
+
 ### Isochrones without filled interior
 If we run with `--fill` off e.g.
 ```
@@ -60,6 +61,7 @@ If we run with `--fill` off e.g.
 we obtain something like:
 
 <img src="imgs/nofill.jpg" alt="nofill" width="750" height="350"/>
+
 ### Isochrones of the shortest distance tree
 To obtain this kind of geometry run with `--predecessor` on.
 ```
@@ -68,5 +70,6 @@ To obtain this kind of geometry run with `--predecessor` on.
 The map we get:
 
 <img src="imgs/predecessor.jpg" alt="predecessor" width="750" height="350"/>
+
 ## Visualisation
 We use `folium` in `Python` to create the maps. Just run `python3 iso_folium.py`.
