@@ -18,10 +18,10 @@ File `out.graphml` is ready to be used.
 
 ### Second way
 Download a map from the website of [GeoFabrik](https://download.geofabrik.de/) in `.osm.pbf` extension (e.g. `someplace.osm.pbf`).
-Copy the coordinates of a polygon in a text file (e.g. `sources.txt`) in the way presented in [osmosis wiki](https://wiki.openstreetmap.org/wiki/Osmosis/Polygon_Filter_File_Format) and save.
+Copy the coordinates of a polygon in a text file (e.g. `poly.txt`) in the way presented in [osmosis wiki](https://wiki.openstreetmap.org/wiki/Osmosis/Polygon_Filter_File_Format) and save.
 Run the following command.
 ```
-osmosis -verbose --read-pbf file=someplace.osm.pbf --bounding-polygon file=sources.txt
+osmosis -verbose --read-pbf file=someplace.osm.pbf --bounding-polygon file=poly.txt
 completeWays=yes --tf accept-ways highway=* --tf reject-ways highway=footway
 --tf reject-relations --used-node --write-xml file=extract.osm
 ```
