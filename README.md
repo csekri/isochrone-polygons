@@ -1,9 +1,16 @@
 # Multiple Source Isochrone Map Generator
-Create your own isochrone maps fast with the buffered roads method from OpenStreetMap street networks.
+Create your own isochrone maps fast with the buffered roads method from OpenStreetMap road networks.
+## Results
+
+<!-- <img src="imgs/fill.jpg" alt="fill" width="250" height="250"/> -->
+<img src="imgs/nofill.jpg" alt="nofill" width="600"/>
+<img src="imgs/predecessor.jpg" alt="predecessor" width="600"/>
+
+
 ## Obtain your own graph
 There are two ways you can procure a graph.
 ### First way
-Run the `Python` code in `osmnx_getmap.py`.
+Run the `Python` code in `osmnx_getmap.py`. Change `source_coord` to the coordinate of interest, dist to change the network size, network type to `'bike'` or `'driving'`.
 ```python
 import osmnx as ox
 ox.config(log_console=True)
@@ -45,31 +52,22 @@ g++ -std=c++11 isochrones.cpp -o isoch -O3 -L /usr/lib/x86_64-linux-gnu/ -lboost
 
 When running the program make sure you have the source points in a WKT Linestring in a text file.
 ### Isochrones with filled interior
-If we run with `--fill` on e.g.
+Run with `--fill` on e.g.
 ```
-./isoch --simplify 0 --travel-speed 20 --radii 5 10 15 20 25 30 35 40 45 50 55 60 --circle-points 11 --verbose --subtract --buffer-distance 0.005 --fill --input-file out.graphml
+./isoch --simplify 0 --travel-speed 20 --radii 5 10 15 20 25 30 35 40 45 50 55 60 --circle-points 11 --verbose --subtract --buffer-distance 0.005 --fill --input-file in.graphml
 ```
-we obtain something like:
-
-<img src="imgs/fill.jpg" alt="fill" width="250" height="250"/>
 
 ### Isochrones without filled interior
-If we run with `--fill` off e.g.
+Run with `--fill` off e.g.
 ```
 ./isoch --simplify 0 --travel-speed 20 --radii 5 10 15 20 25 30 35 40 45 50 55 60 --circle-points 11 --verbose --subtract --buffer-distance 0.00006 --input-file out.graphml
 ```
-we obtain something like:
-
-<img src="imgs/nofill.jpg" alt="nofill" width="750" height="350"/>
 
 ### Isochrones of the shortest distance tree
-To obtain this kind of geometry run with `--predecessor` on.
+Run with `--predecessor` on e.g.
 ```
 ./isoch --simplify 0 --travel-speed 20 --radii 1 2 3 4 5 6 --circle-points 11 --verbose --subtract --buffer-distance 0.00002 --input-file out.graphml --predecessor
 ```
-The map we get:
-
-<img src="imgs/predecessor.jpg" alt="predecessor" width="750" height="350"/>
 
 ## Visualisation
 We use `folium` in `Python` to create the maps. Just run `python3 iso_folium.py`.
